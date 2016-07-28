@@ -1,0 +1,9 @@
+http://albertcn.blog.163.com/blog/static/2094201452014102112147587/ centos源代码编译安装openssl  
+http://my.oschina.net/zhangxu0512/blog/178802  nginx及nginx-rtmp-module安装 
+http://www.centoscn.com/nginx/2015/0304/4782.html CentOS6.5编译安装Nginx和Openssl
+实际安装过程：
+1 下载openssl nginx-rtmp-module nginx
+2 编译openssl
+3 yum -y install pcre-devel
+4 编译安装 ./configure --add-module=../github/nginx-rtmp-module/ --without-http_rewrite_module --with-openssl=../openssl-1.0.2h
+
