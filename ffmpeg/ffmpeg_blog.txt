@@ -1,0 +1,3 @@
+http://blog.csdn.net/span76/article/details/41316229  ffmpeg 频中分离 video audio 截取片断 
+http://blog.chinaunix.net/uid-26000296-id-4095806.html FFMpeg处理RTMP流的总结 
+http://blog.csdn.net/leixiaohua1020/article/details/12980423 从内存中读取数据或将数据输出到内存
