@@ -1,3 +1,12 @@
 http://blog.csdn.net/span76/article/details/41316229  ffmpeg 频中分离 video audio 截取片断 
 http://blog.chinaunix.net/uid-26000296-id-4095806.html FFMpeg处理RTMP流的总结 
+http://blog.csdn.net/leixiaohua1020/article/details/14228879 在FFMPEG中使用libRTMP的经验 提到了ffplay如何播放rtmp
 http://blog.csdn.net/leixiaohua1020/article/details/12980423 从内存中读取数据或将数据输出到内存
+http://blog.csdn.net/leixiaohua1020/article/details/12029543 ffmpeg处理RTMP流媒体的命令大全 
+http://blog.csdn.net/leixiaohua1020/article/details/15186441 ffplay的快捷键以及选项 
+
+#ffmpeg设置avformat_open_input( )超时 -stimeout
+#ffmpeg用avformat_open_input()解析网络流时，默认是阻塞的
+http://www.cnblogs.com/wainiwann/p/4218341.html 
+http://www.tuicool.com/articles/nuABRf 使用ffmpeg的av_read_frame,如何控制连接超时 - 彭坤凡
+doc/examples/remuxing.c //ffmpeg 这个代码需要研究
