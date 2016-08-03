@@ -1,0 +1,1 @@
+http://blog.csdn.net/ww506772362/article/details/43524905  RTP timestamp与帧率及时钟频率的关系 
