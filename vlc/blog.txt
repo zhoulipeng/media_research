@@ -1,0 +1,5 @@
+# 命令行串流（UDP到MMS,RTSP,HTTP） 
+http://blog.sina.com.cn/s/blog_9ac492410100x6g2.html
+# 使用VLC命令行做流化：Streaming HowTo/Command Line Examples
+http://blog.csdn.net/vblittleboy/article/details/34438391
+https://wiki.videolan.org/Documentation:Streaming_HowTo/Command_Line_Examples
