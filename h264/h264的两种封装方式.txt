@@ -1,0 +1,2 @@
+http://blog.chinaunix.net/uid-11344913-id-4432752.html -bsf h264_mp4toannexb 选项解决 mp4 文件的转换错误
+http://blog.csdn.net/flyingqr/article/details/8494050 代码中实现 h264传统模式 转 annexb
