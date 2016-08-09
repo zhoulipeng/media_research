@@ -7,5 +7,7 @@ ffmpeg -re -i test4-flv-1191Kbps.flv -f flv rtmp://127.0.0.1/myapp
 # parameters such as bit_rate, rate, width or height
 # 参考博客http://my.oschina.net/u/919580/blog/140858
 ffmpeg -re -i test13-flv-1797kbps.mkv  -ar 44100 -f flv rtmp://127.0.0.1/myapp
-# 提高质量的选项
+# -qscale 提高质量的选项, 不过这个发送命令会转码，因为没有使用
 ffmpeg -re -i test13-flv-1797kbps.mkv -qscale 0 -ar 44100 -f flv rtmp://127.0.0.1/myapp
+#不转码
+ffmpeg -re -i test13-flv-1797kbps.mkv -c copy -f flv rtmp://127.0.0.1/myapp
