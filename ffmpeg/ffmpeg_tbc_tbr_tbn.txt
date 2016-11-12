@@ -1,0 +1,2 @@
+http://blog.chinaunix.net/uid-11344913-id-4418304.html  ffmpeg中 tbc tbr tbn的含义解释
+http://www.jianshu.com/p/5b78a91f1091  FFmpeg av_dump_format输出的tbn、tbc、tbr、PAR、DAR的含义
