@@ -1,0 +1,342 @@
+﻿**************************************************************
+Windows 下在vlc安装目录用 vlc.exe -h 命令，会在该目录下生成
+**************************************************************
+用法: vlc [选项] [流] ...
+您可以在命令行中指定多个流。
+它们将被加入播放列表队列。
+指定的首个项目将被首先播放。
+
+选项样式:
+  --选项  用于设置程序执行期间的全局选项。
+   -选项  单字母版本的全局 --选项。
+   :选项  一个仅在流之前应用的选项，
+            且将覆盖先前的设置。
+
+流 MRL 语法:
+  [[协议][/去复用]://]URL[#[标题][:章节][-[标题][:章节]]]
+  [:选项=值 ...]
+
+  许多全局 --选项 也可被用作 MRL 特定的 :选项。
+  可指定多对 :选项=值。
+
+URL 语法:
+  file:///路径/文件              纯媒体文件
+  http://主机[:端口]/文件        HTTP URL
+  ftp://主机[:端口]/文件         FTP URL
+  mms://主机[:端口]/文件         MMS URL
+  screen://                      屏幕捕获
+  dvd://[设备]                   DVD 设备
+  vcd://[设备]                   VCD 设备
+  cdda://[设备]                  音频 CD 设备
+  udp://[[<源地址>]@[<绑定地址>][:<绑定端口>]]
+                                 流服务器发送的 UDP 流
+  vlc://pause:<秒数>              暂停播放列表一定时间
+  vlc://quit                     退出 VLC 的特殊项
+
+ 主程序 (core)
+
+ 音频
+      --audio, --no-audio        启用音频 (默认启用)
+      --spdif, --no-spdif        在可能时使用 S/PDIF (默认关闭)
+      --force-dolby-surround={0 (自动), 1 (开), 2 (关)} 
+                                 强制检测杜比环绕声
+      --audio-replay-gain-mode={none,track,album} 
+                                 回放增益模式
+      --audio-replay-gain-preamp=<浮点> 
+                                 回放前置放大
+      --audio-replay-gain-default=<浮点> 
+                                 默认回放增益
+      --audio-time-stretch, --no-audio-time-stretch 
+                                 启用音频时间拉伸 (默认启用)
+      --audio-filter=<字串>        音频滤镜
+      --audio-visual=<字串>        音频可视化效果
+
+ 视频
+  -f, --fullscreen, --no-fullscreen 
+                                 全屏视频输出 (默认关闭)
+      --overlay, --no-overlay    覆盖视频输出 (默认启用)
+      --video-on-top, --no-video-on-top 
+                                 总在最前 (默认关闭)
+      --video-wallpaper, --no-video-wallpaper 
+                                 启用壁纸模式 (默认关闭)
+      --video-title-show, --no-video-title-show 
+                                 在视频上显示媒体标题 (默认启用)
+      --video-title-timeout=<整数 [-2147483648 .. 2147483647]> 
+                                 显示视频标题 x 毫秒
+      --video-title-position={0 (居中), 1 (左), 2 (右), 4 (上), 8 (下), 5 (左上), 6 (右上), 9 (左下), 10 (右下)} 
+                                 视频标题的位置
+      --mouse-hide-timeout=<整数 [-2147483648 .. 2147483647]> 
+                                 在 x 毫秒后隐藏光标和全屏控制器
+   截图:
+      --snapshot-path=<字串>       视频截图目录 (或文件名)
+      --snapshot-prefix=<字串>     视频截图文件前缀
+      --snapshot-format={png,jpg,tiff} 
+                                 视频截图格式
+      --snapshot-preview, --no-snapshot-preview 
+                                 显示视频截图预览 (默认启用)
+      --snapshot-sequential, --no-snapshot-sequential 
+                                 使用顺序编号代替时间戳 (默认关闭)
+   窗口属性:
+      --crop=<字串>                视频裁剪
+      --custom-crop-ratios=<字串>  自定义裁剪比列表
+      --aspect-ratio=<字串>        源宽高比
+      --autoscale, --no-autoscale 
+                                 视频自动缩放 (默认启用)
+      --scale=<浮点>               视频缩放比例
+      --custom-aspect-ratios=<字串> 
+                                 自定义宽高比列表
+      --deinterlace={0 (关), -1 (自动), 1 (开)} 
+                                 反交错
+      --deinterlace-mode={discard,blend,mean,bob,linear,x,yadif,yadif2x,phosphor,ivtc} 
+                                 反交错模式
+      --video-filter=<字串>        视频滤镜模块
+      --video-splitter=<字串>      视频分离器模块
+
+ 子画面
+   屏幕显示:
+      --spu, --no-spu            启用子画面 (默认启用)
+      --osd, --no-osd            屏幕显示 (默认启用)
+   字幕:
+      --sub-file=<字串>            使用字幕文件
+      --sub-autodetect-file, --no-sub-autodetect-file 
+                                 自动检测字幕文件 (默认启用)
+   覆盖:
+      --sub-source=<字串>          子画面源模块
+      --sub-filter=<字串>          子画面滤镜模块
+   轨道设置:
+      --audio-language=<字串>      音频语言
+      --sub-language=<字串>        字幕语言
+      --menu-language=<字串>       菜单语言
+      --preferred-resolution={-1 (最佳可用), 1080 (Full HD (1080p)), 720 (HD (720p)), 576 (标清 (576 或 480 行)), 360 (低清晰度 (360 行)), 240 (极低清晰度 (240 行))} 
+                                 首选视频分辨率
+   播放控制:
+      --input-repeat=<整数 [-2147483648 .. 2147483647]> 
+                                 输入重复
+      --input-fast-seek, --no-input-fast-seek 
+                                 快速定位 (默认关闭)
+      --rate=<浮点>                回放速度
+   默认设备:
+      --dvd=<字串>                 DVD 设备
+      --vcd=<字串>                 VCD 设备
+      --cd-audio=<字串>            音频 CD 设备
+   高级:
+      --input-title-format=<字串>  根据当前媒体更改标题
+
+ 输入
+      --stream-filter=<字串>       串流滤镜模块
+   性能选项:
+      --high-priority, --no-high-priority 
+                                 增加进程的优先级 (默认关闭)
+
+ 播放列表
+  -Z, --random, --no-random      永远随机播放文件 (默认关闭)
+  -L, --loop, --no-loop          全部重复 (默认关闭)
+  -R, --repeat, --no-repeat      重复当前的项目 (默认关闭)
+      --play-and-exit, --no-play-and-exit 
+                                 播放并退出 (默认关闭)
+      --play-and-stop, --no-play-and-stop 
+                                 播放与停止 (默认关闭)
+      --playlist-autostart, --no-playlist-autostart 
+                                 自动启动 (默认启用)
+      --playlist-cork, --no-playlist-cork 
+                                 音频通信时暂停 (默认启用)
+      --media-library, --no-media-library 
+                                 使用媒体库 (默认关闭)
+      --playlist-tree, --no-playlist-tree 
+                                 显示播放列表树 (默认关闭)
+      --open=<字串>                默认流
+      --auto-preparse, --no-auto-preparse 
+                                 自动预分析文件 (默认启用)
+      --metadata-network-access, --no-metadata-network-access 
+                                 允许访问网络查询元数据 (默认启用)
+  -v, --verbose=<整数 [-2147483648 .. 2147483647]> 
+                                 详尽程度 (0,1,2)
+  -q, --quiet, --no-quiet        安静 (默认关闭)
+      --advanced, --no-advanced  显示高级选项 (默认关闭)
+      --interact, --no-interact  界面交互 (默认启用)
+  -I, --intf=<字串>                界面模块
+      --extraintf=<字串>           扩展界面模块
+      --control=<字串>             控制界面
+
+ 热键
+      --hotkeys-mousewheel-mode={2 (忽略), 0 (音频控制), 1 (位置控制)} 
+                                 鼠标滚轮纵轴控制
+      --global-key-toggle-fullscreen=<字串> 
+                                 全屏
+      --key-toggle-fullscreen=<字串> 
+                                 全屏
+      --global-key-leave-fullscreen=<字串> 
+                                 退出全屏
+      --key-leave-fullscreen=<字串> 
+                                 退出全屏
+      --global-key-play-pause=<字串> 
+                                 播放/暂停
+      --key-play-pause=<字串>      播放/暂停
+      --global-key-faster=<字串>   较快
+      --key-faster=<字串>          较快
+      --global-key-slower=<字串>   较慢
+      --key-slower=<字串>          较慢
+      --global-key-rate-normal=<字串> 
+                                 正常比率
+      --key-rate-normal=<字串>     正常比率
+      --global-key-rate-faster-fine=<字串> 
+                                 较快 (微调)
+      --key-rate-faster-fine=<字串> 
+                                 较快 (微调)
+      --global-key-rate-slower-fine=<字串> 
+                                 较慢 (微调)
+      --key-rate-slower-fine=<字串> 
+                                 较慢 (微调)
+      --global-key-next=<字串>     下一个
+      --key-next=<字串>            下一个
+      --global-key-prev=<字串>     上一个
+      --key-prev=<字串>            上一个
+      --global-key-stop=<字串>     停止
+      --key-stop=<字串>            停止
+      --global-key-jump-extrashort=<字串> 
+                                 非常短的向后跳转
+      --key-jump-extrashort=<字串> 非常短的向后跳转
+      --global-key-jump+extrashort=<字串> 
+                                 非常短的向前跳转
+      --key-jump+extrashort=<字串> 非常短的向前跳转
+      --global-key-jump-short=<字串> 
+                                 短向后跳转
+      --key-jump-short=<字串>      短向后跳转
+      --global-key-jump+short=<字串> 
+                                 短向前跳转
+      --key-jump+short=<字串>      短向前跳转
+      --global-key-jump-medium=<字串> 
+                                 中向后跳转
+      --key-jump-medium=<字串>     中向后跳转
+      --global-key-jump+medium=<字串> 
+                                 中向前跳转
+      --key-jump+medium=<字串>     中向前跳转
+      --global-key-jump-long=<字串> 
+                                 长向后跳转
+      --key-jump-long=<字串>       长向后跳转
+      --global-key-jump+long=<字串> 
+                                 长向前跳转
+      --key-jump+long=<字串>       长向前跳转
+      --global-key-frame-next=<字串> 
+                                 下一帧
+      --key-frame-next=<字串>      下一帧
+      --global-key-quit=<字串>     退出
+      --key-quit=<字串>            退出
+      --global-key-vol-up=<字串>   音量上
+      --key-vol-up=<字串>          音量上
+      --global-key-vol-down=<字串> 音量下
+      --key-vol-down=<字串>        音量下
+      --global-key-vol-mute=<字串> 静音
+      --key-vol-mute=<字串>        静音
+      --global-key-audio-track=<字串> 
+                                 切换音轨
+      --key-audio-track=<字串>     切换音轨
+      --global-key-audiodevice-cycle=<字串> 
+                                 在音频设备之间切换
+      --key-audiodevice-cycle=<字串> 
+                                 在音频设备之间切换
+      --global-key-subtitle-track=<字串> 
+                                 切换字幕轨道
+      --key-subtitle-track=<字串>  切换字幕轨道
+      --global-key-subtitle-toggle=<字串> 
+                                 切换字幕
+      --key-subtitle-toggle=<字串> 切换字幕
+      --global-key-program-sid-next=<字串> 
+                                 遍历下一节目服务 ID
+      --key-program-sid-next=<字串> 
+                                 遍历下一节目服务 ID
+      --global-key-program-sid-prev=<字串> 
+                                 遍历上一节目服务 ID
+      --key-program-sid-prev=<字串> 
+                                 遍历上一节目服务 ID
+      --global-key-aspect-ratio=<字串> 
+                                 切换源宽高比
+      --key-aspect-ratio=<字串>    切换源宽高比
+      --global-key-crop=<字串>     切换视频剪辑
+      --key-crop=<字串>            切换视频剪辑
+      --global-key-toggle-autoscale=<字串> 
+                                 打开或关闭自动缩放
+      --key-toggle-autoscale=<字串> 
+                                 打开或关闭自动缩放
+      --global-key-incr-scalefactor=<字串> 
+                                 增大缩放因数
+      --key-incr-scalefactor=<字串> 
+                                 增大缩放因数
+      --global-key-decr-scalefactor=<字串> 
+                                 减小缩放因数
+      --key-decr-scalefactor=<字串> 
+                                 减小缩放因数
+      --global-key-deinterlace=<字串> 
+                                 切换反交错
+      --key-deinterlace=<字串>     切换反交错
+      --global-key-deinterlace-mode=<字串> 
+                                 切换反交错模式
+      --key-deinterlace-mode=<字串> 
+                                 切换反交错模式
+      --global-key-intf-show=<字串> 
+                                 全屏时显示控制器
+      --key-intf-show=<字串>       全屏时显示控制器
+      --global-key-wallpaper=<字串> 
+                                 在视频输出模式中切换壁纸输出
+      --key-wallpaper=<字串>       在视频输出模式中切换壁纸输出
+      --global-key-random=<字串>   随机顺序
+      --key-random=<字串>          随机顺序
+      --global-key-loop=<字串>     普通/重复/循环
+      --key-loop=<字串>            普通/重复/循环
+   缩放:
+      --global-key-zoom-quarter=<字串> 
+                                 1:4 四分之一
+      --key-zoom-quarter=<字串>    1:4 四分之一
+      --global-key-zoom-half=<字串> 
+                                 1:2 二分之一
+      --key-zoom-half=<字串>       1:2 二分之一
+      --global-key-zoom-original=<字串> 
+                                 1:1 原始
+      --key-zoom-original=<字串>   1:1 原始
+      --global-key-zoom-double=<字串> 
+                                 2:1 双倍
+      --key-zoom-double=<字串>     2:1 双倍
+   跳跃大小:
+      --extrashort-jump-size=<整数 [-2147483648 .. 2147483647]> 
+                                 非常短的跳转长度
+      --short-jump-size=<整数 [-2147483648 .. 2147483647]> 
+                                 短跳转长度
+      --medium-jump-size=<整数 [-2147483648 .. 2147483647]> 
+                                 中跳转长度
+      --long-jump-size=<整数 [-2147483648 .. 2147483647]> 
+                                 长跳转长度
+      --bookmark1=<字串>           播放列表书签 1
+      --bookmark2=<字串>           播放列表书签 2
+      --bookmark3=<字串>           播放列表书签 3
+      --bookmark4=<字串>           播放列表书签 4
+      --bookmark5=<字串>           播放列表书签 5
+      --bookmark6=<字串>           播放列表书签 6
+      --bookmark7=<字串>           播放列表书签 7
+      --bookmark8=<字串>           播放列表书签 8
+      --bookmark9=<字串>           播放列表书签 9
+      --bookmark10=<字串>          播放列表书签 10
+  -h, --help, --no-help          打印 VLC 帮助 (可以和 --advanced 和 --help-verbose
+                                 一起使用) (默认关闭)
+  -H, --full-help, --no-full-help 
+                                 VLC 和它模块的全面帮助 (默认关闭)
+      --longhelp, --no-longhelp  打印 VLC 和它全部模块的帮助 (可以和 --advanced 和
+                                 --help-verbose 一起使用) (默认关闭)
+      --help-verbose, --no-help-verbose 
+                                 在显示帮助时询问是否显示额外的解释 (默认关闭)
+  -l, --list, --no-list          打印一份可用模块的列表 (默认关闭)
+      --list-verbose, --no-list-verbose 
+                                 打印一份带详细信息的可用模块列表 (默认关闭)
+  -p, --module=<字串>              输出关于指定模块的帮助 (可以和 --advanced 和 --help-verbose
+                                 一起使用)。在模块名前面加 = 可严格匹配。
+      --ignore-config, --no-ignore-config 
+                                 没有配置选项将被加载或被保存到配置文件中 (默认启用)
+      --reset-config, --no-reset-config 
+                                 重置当前配置为默认值 (默认关闭)
+      --reset-plugins-cache, --no-reset-plugins-cache 
+                                 重置当前插件的缓存 (默认关闭)
+      --version, --no-version    打印版本信息 (默认关闭)
+      --config=<字串>              使用可替换的配置文件
+
+说明: 将 --advanced 添加到命令行，可查看高级选项。
+
+要获取详尽的帮助，请使用“-H”。
