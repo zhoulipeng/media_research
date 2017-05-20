@@ -38,11 +38,11 @@ ffmpeg -f concat -i <(for i in {1..4}; do printf "file '%s'\n" input.mp4; done) 
 -------------------------------------------------------------------------------------------
 实验结果：成功了
 命令1 
-for i in {1..4}; do printf "file '%s'\n" Kingkong.flv >> list.txt; done
+for i in {1..10}; do printf "file '%s'\n" Kingkong.flv >> list.txt; done
 命令2
 ffmpeg -re -f concat  -i list.txt -vcodec copy -acodec copy  -f flv -y rtmp://127.0.0.1:19350/live/A0EF0795CE4646ACB0505FEA4A93080
 命令3 =  1+2 需要用 文件的绝对路径，并加 -safe 0 选项
-ffmpeg -re -f concat -safe 0 -i <(for i in {1..4}; do printf "file '%s'\n" /usr/local/srs/doc/Kingkong.flv; done) -vcodec copy -acodec copy  -f flv -y rtmp://127.0.0.1:19350/live/4E384119-1836-4744-ABFF-D3E1C3E55DAB
+ffmpeg -re -f concat -safe 0 -i <(for i in {1..100}; do printf "file '%s'\n" /usr/local/srs/doc/Kingkong.flv; done) -vcodec copy -acodec copy  -f flv -y rtmp://127.0.0.1:19350/live/4E384119-1836-4744-ABFF-D3E1C3E55DAB
 
 # 方法二，比国内网站说得更清楚 
 # -stream_loop 10000 ，可以运行但不管用,如下
